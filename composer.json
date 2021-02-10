@@ -1,0 +1,27 @@
+{
+    "name": "trin4ik/laravel-russian-city",
+    "description": "parser russian city",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "trin",
+            "email": "trin4ik@gmail.com"
+        }
+    ],
+    "require": {
+        "grimzy/laravel-mysql-spatial": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Trin4ik\\RussianCity\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Trin4ik\\RussianCity\\RussianCityServiceProvider"
+            ]
+        }
+    }
+}
