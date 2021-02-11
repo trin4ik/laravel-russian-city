@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class City extends Model
 {
-    use SoftDeletes, HasFactory;
-
     protected $fillable = [
         'id',
         'name',
+        'okrug_id',
+        'region_id',
         'population',
         'started_at',
         'coordinate',

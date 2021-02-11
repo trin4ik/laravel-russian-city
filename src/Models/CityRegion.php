@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class CityRegion extends Model
 {
-
     protected $fillable = [
         'id',
         'name',

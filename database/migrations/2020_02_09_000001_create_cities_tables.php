@@ -13,13 +13,13 @@ class CreateCitiesTables extends Migration
      */
     public function up()
     {
-        Schema::create('city', function (Blueprint $table) {
+        Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->unsignedInteger('okrug_id');
-            $table->unsignedInteger('region_id');
+            $table->string('name')->index();
+            $table->unsignedInteger('okrug_id')->index();
+            $table->unsignedInteger('region_id')->index();
             $table->unsignedInteger('population')->nullable();
-            $table->year('started_at')->nullable();
+            $table->unsignedSmallInteger('started_at')->nullable();
             $table->point('coordinate')->nullable();
             $table->polygon('polygon')->nullable();
             $table->string('gerb')->nullable();
@@ -27,15 +27,15 @@ class CreateCitiesTables extends Migration
             $table->timestamps();
         });
 
-        Schema::create('city_okrug', function (Blueprint $table) {
+        Schema::create('city_okrugs', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->index();
             $table->timestamps();
         });
 
-        Schema::create('city_region', function (Blueprint $table) {
+        Schema::create('city_regions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->index();
             $table->timestamps();
         });
     }
@@ -47,8 +47,8 @@ class CreateCitiesTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('city');
-        Schema::dropIfExists('city_okrug');
-        Schema::dropIfExists('city_region');
+        Schema::dropIfExists('cities');
+        Schema::dropIfExists('city_okrugs');
+        Schema::dropIfExists('city_regions');
     }
 }
